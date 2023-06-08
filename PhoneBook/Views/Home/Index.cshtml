@@ -1,0 +1,32 @@
+﻿@model List<PhoneBookModel> 
+@{
+ViewBag.Title = "My Movies";
+}
+<h2>Movie List</h2>
+<a asp-controller="Movie" asp-action="Add">Add New Movie</a> 
+<table class="table table-bordered table-striped"> 
+    <thead> 
+        <tr>
+            <th>Name</th> 
+            <th>PhoneNumber</th> 
+            <th>Address</th>
+            <th>Note</th>
+            <th></th>
+        </tr>
+    </thead> 
+<tbody>
+@foreach (var phonbooks in Model) {
+    <tr>
+                <td>@phonbooks.Name</td>
+                <td>@phonbooks.PhoneNumber</td>
+                <td>@phonbooks.Address</td>
+                <td>@phonbooks.Note</td>
+                <td>
+                    <a asp-controller="PhoneBookModel" asp-action="Edit" 
+                        asp-route-id="@phonbooks.PhoneBookId">Edit</a> 
+                    <a asp-controller="PhoneBookModel" asp-action="Delete" 
+                        asp-route-id="@phonbooks.PhoneBookId">Delete</a>
+                </td> 
+    </tr> 
+    } 
+</tbod
